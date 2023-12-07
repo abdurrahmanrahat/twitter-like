@@ -16,7 +16,7 @@ const usePosts = () => {
 
   const fetchPosts = async () => {
     const res = await axios.get(
-      `http://localhost:5000/posts?limit=${limit}&page=${page}&search=${search}`
+      `https://demo-twitter-server.vercel.app/posts?limit=${limit}&page=${page}&search=${search}`
     );
     return res.data;
   };

@@ -20,7 +20,7 @@ const Home = () => {
   }
 
   return (
-    <div className="md:flex mt-[24px]">
+    <div className="md:flex mt-[24px] mx-4 md:mx-0">
       <div className="md:w-[20%] hidden md:block">
         <SideBar></SideBar>
       </div>
@@ -56,19 +56,27 @@ const Home = () => {
         </div>
 
         {/* show posts */}
-        <div className="mt-12 flex flex-col gap-10">
-          {posts?.map((post) => (
-            <div key={post._id} className="flex gap-10">
-              <div>
-                <img src={post?.img} className="w-[360px] h-[100px]" alt="" />
+        {posts?.length > 0 ? (
+          <div className="mt-12 flex flex-col gap-10">
+            {posts?.map((post) => (
+              <div key={post._id} className="flex gap-10">
+                <div>
+                  <img src={post?.img} className="w-[360px] h-[100px]" alt="" />
+                </div>
+                <div>
+                  <h4 className="text-[24px] font-medium">{post.title}</h4>
+                  <p>{post.description.slice(0, 150)}...</p>
+                </div>
               </div>
-              <div>
-                <h4 className="text-[24px] font-medium">{post.title}</h4>
-                <p>{post.description.slice(0, 150)}...</p>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="flex items-center justify-center mt-10">
+            <h2 className="text-[20px] font-semibold text-red-700">
+              No Data Found!!
+            </h2>
+          </div>
+        )}
 
         {/* pagination btn */}
         <div className="flex items-center justify-center md:justify-end mt-8">

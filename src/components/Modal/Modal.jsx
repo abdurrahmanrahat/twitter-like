@@ -33,14 +33,17 @@ export default function Modal({ isOpen, setIsOpen, refetch }) {
       .then((imgResponse) => {
         if (imgResponse.success) {
           const postPhoto = imgResponse.data.display_url;
+          const currentDateInMillis = new Date().getTime();
+
           const newPost = {
             img: postPhoto,
             title: postTitle,
             description: postDescription,
+            dateInMillis: currentDateInMillis,
           };
 
           // saved data to db
-          fetch("http://localhost:5000/posts", {
+          fetch("https://demo-twitter-server.vercel.app/posts", {
             method: "POST",
             headers: {
               "content-type": "application/json",

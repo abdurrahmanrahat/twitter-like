@@ -4,7 +4,7 @@ const RightBar = () => {
   const [, , handleSearch, searchRef] = usePosts();
 
   return (
-    <div className="mr-16 ml-4">
+    <div className="mr-16 ml-4 mt-8 md:mt-0">
       {/* search bar */}
       <div className="form-control">
         <div className="input-group flex justify-between items-center">
