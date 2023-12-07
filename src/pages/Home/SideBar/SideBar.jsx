@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import toast from "react-hot-toast";
 import {
   FaBars,
   FaComment,
@@ -10,10 +12,20 @@ import {
 import { GrNotification } from "react-icons/gr";
 import DemoPic from "../../../assets/demo-profile.png";
 import Logo from "../../../assets/twitter-logo.png";
+import { AuthContext } from "../../../provider/AuthProvider";
 import "./SideBar.css";
 
 const SideBar = () => {
   //   const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
+  // user logout
+  const handleLogout = () => {
+    logOut()
+      .then(() => {
+        toast.success("User logout successfully");
+      })
+      .catch((err) => toast.error(err.message));
+  };
   return (
     <div className="ml-4">
       <img src={Logo} alt="" />
@@ -50,7 +62,7 @@ const SideBar = () => {
         </div>
         <div className="flex gap-[14px] hover-scale">
           <img
-            src={DemoPic}
+            src={user?.photoURL || DemoPic}
             className="w-[28px] h-[28px] rounded-full"
             alt=""
           />
@@ -60,6 +72,12 @@ const SideBar = () => {
           <FaBars className="text-[26px]" />
           <h4 className="text-lg ">More</h4>
         </div>
+        <button
+          onClick={handleLogout}
+          className="hover-scale bg-[#1575a7] px-4 py-2 text-white text-[18px] rounded-md font-medium"
+        >
+          Logout
+        </button>
       </div>
     </div>
   );
