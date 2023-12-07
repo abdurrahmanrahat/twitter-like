@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "photo": "https://i.ibb.co/x2VFZGC/elizabethan.png",
+    "userName": "samita_asik"
+  },
+  {
+    "id": 2,
+    "photo": "https://i.ibb.co/2Y4d97T/Sidney.png",
+    "userName": "rahat_sarkar"
+  },
+  {
+    "id": 3,
+    "photo": "https://i.ibb.co/n3GhL3Z/Json-roy.png",
+    "userName": "rahman_boy"
+  },
+  {
+    "id": 4,
+    "photo": "https://i.ibb.co/WsmdZYV/Json-roy.png",
+    "userName": "yasin_arafath"
+  },
+  {
+    "id": 5,
+    "photo": "https://i.ibb.co/7KhfGN1/avater1.png",
+    "userName": "linthiya_my"
+  },
+  {
+    "id": 6,
+    "photo": "https://i.ibb.co/b5cx219/avater3.png",
+    "userName": "nabila_ex"
+  }
+]

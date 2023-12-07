@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { FiEdit } from "react-icons/fi";
 import Modal from "../../../components/Modal/Modal";
 import { AuthContext } from "../../../provider/AuthProvider";
+import RightBar from "../RightBar/RightBar";
 import SideBar from "../SideBar/SideBar";
 
 const Home = () => {
@@ -43,7 +44,9 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="md:w-[25%]">Right</div>
+      <div className="md:w-[25%]">
+        <RightBar></RightBar>
+      </div>
     </div>
   );
 };

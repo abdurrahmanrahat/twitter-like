@@ -8,8 +8,6 @@ const image_hoisting_token = import.meta.env.VITE_image_uplode_token;
 
 export default function Modal({ isOpen, setIsOpen }) {
   const { user } = useContext(AuthContext);
-  const userEmail = user?.email;
-  const userName = userEmail?.split("@")[0];
 
   const { register, handleSubmit } = useForm();
   function closeModal() {
@@ -24,6 +22,7 @@ export default function Modal({ isOpen, setIsOpen }) {
   const onSubmit = (data) => {
     onCancel();
     const postTitle = data.postTitle;
+    const postDescription = data.postDescription;
     console.log(data);
 
     const formData = new FormData();
@@ -38,12 +37,9 @@ export default function Modal({ isOpen, setIsOpen }) {
         if (imgResponse.success) {
           const postPhoto = imgResponse.data.display_url;
           const newPost = {
-            userName,
-            userPhoto: user?.displayURL,
             postPhoto,
             postTitle,
-            postLove: "0",
-            postHour: "1h",
+            postDescription,
           };
           // saved data to db
 
@@ -114,6 +110,21 @@ export default function Modal({ isOpen, setIsOpen }) {
                             {...register("photo", { required: true })}
                             className="file-input file-input-bordered w-full max-w-xs"
                           />
+                        </div>
+
+                        {/* post description Field */}
+                        <div className="form-control flex flex-col mt-6">
+                          <label className="block mb-[5px] font-bold">
+                            Post Description
+                          </label>
+                          <textarea
+                            name="postDescription"
+                            id=""
+                            cols="30"
+                            rows="4"
+                            {...register("postDescription", { required: true })}
+                            className="w-full p-2 border border-solid border-[#ccc] rounded-lg"
+                          ></textarea>
                         </div>
                       </div>
 
