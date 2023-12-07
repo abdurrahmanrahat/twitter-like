@@ -68,13 +68,13 @@ const RightBar = () => {
           <div className="flex justify-between items-center">
             <div className="flex gap-2">
               <img
-                src="https://i.ibb.co/x2VFZGC/elizabethan.png"
+                src="https://i.ibb.co/2Y4d97T/Sidney.png"
                 className="w-[40px] h-[40px] rounded-full"
                 alt=""
               />
               <div>
-                <p className="font-medium">samita_asik</p>
-                <p className="text-gray-500 text-[12px]">@samita_asik</p>
+                <p className="font-medium">rahat_sarkar</p>
+                <p className="text-gray-500 text-[12px]">@rahat_sarkar</p>
               </div>
             </div>
             <div>
@@ -86,13 +86,13 @@ const RightBar = () => {
           <div className="flex justify-between items-center">
             <div className="flex gap-2">
               <img
-                src="https://i.ibb.co/x2VFZGC/elizabethan.png"
+                src="https://i.ibb.co/n3GhL3Z/Json-roy.png"
                 className="w-[40px] h-[40px] rounded-full"
                 alt=""
               />
               <div>
-                <p className="font-medium">samita_asik</p>
-                <p className="text-gray-500 text-[12px]">@samita_asik</p>
+                <p className="font-medium">rahman_boy</p>
+                <p className="text-gray-500 text-[12px]">@rahman_boy</p>
               </div>
             </div>
             <div>
@@ -104,13 +104,13 @@ const RightBar = () => {
           <div className="flex justify-between items-center">
             <div className="flex gap-2">
               <img
-                src="https://i.ibb.co/x2VFZGC/elizabethan.png"
+                src="https://i.ibb.co/7KhfGN1/avater1.png"
                 className="w-[40px] h-[40px] rounded-full"
                 alt=""
               />
               <div>
-                <p className="font-medium">samita_asik</p>
-                <p className="text-gray-500 text-[12px]">@samita_asik</p>
+                <p className="font-medium">linthiya_my</p>
+                <p className="text-gray-500 text-[12px]">@linthiya_my</p>
               </div>
             </div>
             <div>
