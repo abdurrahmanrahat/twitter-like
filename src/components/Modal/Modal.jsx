@@ -1,14 +1,11 @@
 import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useContext } from "react";
+import { Fragment } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { AuthContext } from "../../provider/AuthProvider";
 
 const image_hoisting_token = import.meta.env.VITE_image_uplode_token;
 
-export default function Modal({ isOpen, setIsOpen }) {
-  const { user } = useContext(AuthContext);
-
+export default function Modal({ isOpen, setIsOpen, refetch }) {
   const { register, handleSubmit } = useForm();
   function closeModal() {
     setIsOpen(false);
@@ -37,13 +34,27 @@ export default function Modal({ isOpen, setIsOpen }) {
         if (imgResponse.success) {
           const postPhoto = imgResponse.data.display_url;
           const newPost = {
-            postPhoto,
-            postTitle,
-            postDescription,
+            img: postPhoto,
+            title: postTitle,
+            description: postDescription,
           };
-          // saved data to db
 
-          toast.success("New post uploaded successfully");
+          // saved data to db
+          fetch("http://localhost:5000/posts", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(newPost),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log("inside post response", data);
+              if (data.insertedId) {
+                refetch();
+                toast.success("Post Uploaded Successfully.");
+              }
+            });
         }
       })
       .catch((err) => {

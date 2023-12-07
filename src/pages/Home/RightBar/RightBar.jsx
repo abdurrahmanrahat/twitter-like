@@ -1,13 +1,7 @@
-import { useRef, useState } from "react";
+import usePosts from "../../../hooks/usePosts";
 
 const RightBar = () => {
-  const [search, setSearch] = useState("");
-
-  const searchRef = useRef(null);
-  const handleSearch = () => {
-    setSearch(searchRef.current.value);
-  };
-  console.log(search);
+  const [, , handleSearch, searchRef] = usePosts();
   return (
     <div className="mr-16 ml-4">
       {/* search bar */}
