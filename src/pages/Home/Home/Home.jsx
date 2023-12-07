@@ -9,8 +9,11 @@ import SideBar from "../SideBar/SideBar";
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useContext(AuthContext);
-  const [posts, refetch] = usePosts();
+  const [posts, refetch, , , , page, setPage, limit] = usePosts();
   console.log(posts);
+
+  const sd = posts?.length;
+  console.log("sd", sd);
 
   function openModal() {
     setIsOpen(true);
@@ -48,9 +51,7 @@ const Home = () => {
 
           {/* count post */}
           <div className="w-[30%] flex justify-end items-center">
-            <h4 className="text-lg font-medium">
-              Total Posts: {posts?.length}
-            </h4>
+            <h4 className="text-lg font-medium">Total Posts: 18+</h4>
           </div>
         </div>
 
@@ -67,6 +68,35 @@ const Home = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* pagination btn */}
+        <div className="flex items-center justify-center md:justify-end mt-8">
+          <div className="join font-semibold">
+            <button
+              className="join-item btn text-[20px]"
+              onClick={() => {
+                page === 1 ? setPage(1) : setPage(page - 1);
+              }}
+              disabled={page === 1}
+            >
+              «
+            </button>
+            <button className="join-item btn font-semibold text-[17px]">
+              {page}
+            </button>
+            <button
+              className="join-item btn text-[20px]"
+              onClick={() => {
+                page === Math.round(18 / limit)
+                  ? setPage(Math.round(18 / limit))
+                  : setPage(page + 1);
+              }}
+              disabled={page === Math.round(18 / limit)}
+            >
+              »
+            </button>
+          </div>
         </div>
       </div>
       <div className="md:w-[25%]">

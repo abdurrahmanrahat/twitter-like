@@ -11,8 +11,8 @@ const usePosts = () => {
   const handleSearch = () => {
     setSearch(searchRef.current.value);
   };
-  console.log(search);
-  console.log(limit);
+  console.log("search", search);
+  console.log(page);
 
   const fetchPosts = async () => {
     const res = await axios.get(
@@ -21,11 +21,7 @@ const usePosts = () => {
     return res.data;
   };
 
-  const {
-    data: posts,
-    refetch,
-    isLoading,
-  } = useQuery(["posts", limit, page], fetchPosts);
+  const { data: posts, refetch, isLoading } = useQuery(["posts"], fetchPosts);
 
   // Update the query key when limit or page changes
   useEffect(() => {

@@ -2,6 +2,7 @@ import usePosts from "../../../hooks/usePosts";
 
 const RightBar = () => {
   const [, , handleSearch, searchRef] = usePosts();
+
   return (
     <div className="mr-16 ml-4">
       {/* search bar */}
